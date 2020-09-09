@@ -35,7 +35,7 @@
 ### Association
 
 - belongs_to :user
-- has_one :buys
+- has_one :buy
 
 ## buys テーブル
 
@@ -48,7 +48,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :addresses
+- has_one :address
 
 ## addresses テーブル
 
@@ -56,7 +56,7 @@
 | -------------- | ---------- | ------------------------------ |
 | buy            | references | null: false, foreign_key: true |
 | post_number    | string     | null: false                    |
-| prefectures_id | integer    | null: false, foreign_key: true |
+| prefectures_id | integer    | null: false                    |
 | city           | string     | null: false                    |
 | house_number   | string     | null: false                    |
 | building_name  | string     |                                |
