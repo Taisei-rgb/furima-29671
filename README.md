@@ -52,15 +52,15 @@
 
 ## addresses テーブル
 
-| Column         | Type       | Options                        |
-| -------------- | ---------- | ------------------------------ |
-| buy            | references | null: false, foreign_key: true |
-| post_number    | string     | null: false                    |
-| prefectures_id | integer    | null: false                    |
-| city           | string     | null: false                    |
-| house_number   | string     | null: false                    |
-| building_name  | string     |                                |
-| phone_number   | string     | null: false                    |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| buy           | references | null: false, foreign_key: true |
+| post_number   | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
+| city          | string     | null: false                    |
+| house_number  | string     | null: false                    |
+| building_name | string     |                                |
+| phone_number  | string     | null: false                    |
 
 ### Association
 
