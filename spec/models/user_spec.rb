@@ -5,6 +5,12 @@ RSpec.describe User, type: :model do
     @user = FactoryBot.build(:user)
   end
 
+  context '内容に問題ない場合' do
+    it '全て正常' do
+      expect(@user.valid?).to eq true
+    end
+  end
+
   describe 'ユーザー情報' do
     it 'ニックネームが必須であること' do
       @user.nickname = nil
