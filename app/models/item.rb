@@ -1,5 +1,4 @@
 class Item < ApplicationRecord
-
   has_one_attached :image
   belongs_to :user
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -9,11 +8,11 @@ class Item < ApplicationRecord
   belongs_to_active_hash :status
   belongs_to_active_hash :waiting_date
 
-  validates :price, :numericality => { :greater_than_or_equel_to => 300}
-  validates :price, :numericality => { :less_than_or_equal_to => 9999999}
+  validates :price, numericality: { greater_than_or_equel_to: 300 }
+  validates :price, numericality: { less_than_or_equal_to: 9_999_999}
 
   validates :name, :description, :price, :image, presence: true
 
   validates :category_id, :prefecture_id, :shipping_fee_id, :status_id, :waiting_date_id,
-  numericality: { other_than: 0 }
+            numericality: { other_than: 0 }
 end

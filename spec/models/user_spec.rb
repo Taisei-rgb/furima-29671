@@ -58,13 +58,13 @@ RSpec.describe User, type: :model do
       it 'ユーザー本名の名字が必須であること' do
         @user.family_name = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name is invalid")
+        expect(@user.errors.full_messages).to include('Family name is invalid')
       end
 
       it 'ユーザー本名の名前が必須であること' do
         @user.first_name = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name is invalid")
+        expect(@user.errors.full_messages).to include('First name is invalid')
       end
 
       it 'ユーザー本名は全角（漢字・ひらがな・カタカナ）で入力させること' do
@@ -76,13 +76,13 @@ RSpec.describe User, type: :model do
       it 'ユーザー本名のフリガナの、名字が必須であること' do
         @user.family_name_kana = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name kana is invalid")
+        expect(@user.errors.full_messages).to include('Family name kana is invalid')
       end
 
       it 'ユーザー本名フリガナの、名前が必須であること' do
         @user.first_name_kana = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name kana is invalid")
+        expect(@user.errors.full_messages).to include('First name kana is invalid')
       end
 
       it 'ユーザー本名のフリガナは全角（カタカナ）で入力させること' do
