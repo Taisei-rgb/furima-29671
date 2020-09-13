@@ -9,6 +9,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :status
   belongs_to_active_hash :waiting_date
 
+  validates :price, inclusion: [in: 300..9999999]
+
   validates :name, :description, :price, :image, presence: true
 
   validates :category_id, :prefecture_id, :shipping_fee_id, :status_id, :waiting_date_id,
