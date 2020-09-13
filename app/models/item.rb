@@ -9,7 +9,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :status
   belongs_to_active_hash :waiting_date
 
-  validates :price, inclusion: [in: 300..9999999]
+  validates :price, :numericality => { :greater_than_or_equel_to => 300}
+  validates :price, :numericality => { :less_than_or_equal_to => 9999999}
 
   validates :name, :description, :price, :image, presence: true
 
