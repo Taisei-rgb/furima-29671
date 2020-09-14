@@ -1,7 +1,9 @@
 class ItemsController < ApplicationController
   before_action :unless_login_user, only: :new
 
-  def index; end
+  def index
+    @items = Item.all
+  end
 
   def new
     @item = Item.new
