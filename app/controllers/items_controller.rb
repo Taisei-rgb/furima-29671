@@ -2,11 +2,15 @@ class ItemsController < ApplicationController
   before_action :unless_login_user, only: :new
 
   def index
-    @items = Item.all.order("created_at DESC")
+    @items = Item.all.order('created_at DESC')
   end
 
   def new
     @item = Item.new
+  end
+
+  def show
+    @item = Item.find(params[:id])
   end
 
   def edit; end
