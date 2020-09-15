@@ -11,10 +11,10 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @item.user_id == current_user.id
