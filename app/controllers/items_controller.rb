@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :unless_login_user, only: :new
-  before_action :find_item, only: [:show, :edit,:update]
+  before_action :find_item, only: %i[show edit update]
 
   def index
     @items = Item.all.order('created_at DESC')
@@ -14,8 +14,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @item.user_id == current_user.id
