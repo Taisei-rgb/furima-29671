@@ -17,12 +17,11 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @item.update(item_params) 
     if @item.user_id == current_user.id
-      if @item.update(item_params)
         redirect_to item_path(@item.id)
-      else
+    else
         redirect_to action: :edit
-      end
     end
   end
 
@@ -34,6 +33,11 @@ class ItemsController < ApplicationController
       render action: :new
     end
   end
+
+  # def destroy
+  #   @item = Item.find(params[:id])
+  #   @item.destroy
+  # end
 
   private
 
