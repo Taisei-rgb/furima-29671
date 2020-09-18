@@ -21,6 +21,8 @@ class OrdersController < ApplicationController
     end
   end
 
+  private
+
   def find_seller
     @item = Item.find(params[:item_id])
   end
@@ -30,8 +32,6 @@ class OrdersController < ApplicationController
       redirect_to root_path
     end
   end
-
-  private
 
   def address_params
     params.permit(:token, :post_number, :prefecture_id, :city, :house_number, :building_name, :phone_number, :item_id).merge(user_id: current_user.id)
