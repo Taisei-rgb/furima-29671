@@ -9,9 +9,8 @@ class UserAddress
     validates :house_number
     validates :phone_number, format: { with: /\A\d{11}\z/}
     validates :token
+    validates :prefecture_id, numericality: { other_than: 0 }
   end
-  
-  validates :prefecture_id, numericality: { other_than: 0 }
 
   def save
     buy = Buy.create(user_id: user_id, item_id: item_id)

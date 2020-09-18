@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_seller, only: :index
+  before_action :set_item, only: :index, :create
   before_action :redirect_seller, only: :index
 
   def index
@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
 
   private
 
-  def find_seller
+  def set_item
     @item = Item.find(params[:item_id])
   end
   
