@@ -9,6 +9,10 @@ RSpec.describe UserAddress, type: :model do
       it '全ての値が正常であれば、購入できること' do
         expect(@user_address).to be_valid
       end
+      it '建物名が空でも購入ができる'do
+        @user_address.building_name = ""
+        expect(@user_address).to be_valid  
+      end
     end
 
     context '商品購入がうまくいかないとき' do
@@ -51,6 +55,11 @@ RSpec.describe UserAddress, type: :model do
         @user_address.phone_number = '090123412345'
         @user_address.valid?
         expect(@user_address.errors.full_messages).to include("Phone number is invalid")
+      end
+      it 'トークンが空だと購入できない' do
+        @user_address.token = ""
+        @user_address.valid?
+        expect(@user_address.errors.full_messages).to include("Token can't be blank")  
       end
     end
   end
