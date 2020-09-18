@@ -4,13 +4,13 @@ class OrdersController < ApplicationController
   before_action :redirect_seller, only: :index
 
   def index
-    @item = Item.find(params[:item_id])
     if @item.buy
       redirect_to root_path
     end
   end
 
   def create 
+    @item = Item.find(params[:item_id])
     @address = UserAddress.new(address_params)
     if @address.valid?
       pay_item
@@ -38,7 +38,6 @@ class OrdersController < ApplicationController
   end
 
   def pay_item
-    @item = Item.find(params[:item_id])
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
       amount: @item.price,
