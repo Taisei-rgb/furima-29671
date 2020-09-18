@@ -5,8 +5,8 @@ class UserAddress
 
   with_options presence: true do
     validates :post_number, format: { with: /\A\d{3}[-]\d{4}\z/}
-    validates :city,
-    validates :house_number,
+    validates :city
+    validates :house_number
     validates :phone_number, format: { with: /\A\d{11}\z/}
   end
   
